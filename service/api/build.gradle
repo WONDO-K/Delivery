@@ -30,8 +30,18 @@ dependencies {
 
     // 한 부모 아래에 있는 프로젝트 중 이 api라는 모듈이 db라는 모듈을 사용하겠다는 의미
     implementation project(':db')
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 test {
     useJUnitPlatform()
+}
+
+bootJar {
+    enabled = true
+}
+
+jar {
+    enabled = false
 }
