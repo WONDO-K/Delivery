@@ -18,6 +18,7 @@ public class LoggerFilter implements Filter {
 
         var req = new ContentCachingRequestWrapper((HttpServletRequest) request);
         var res = new ContentCachingResponseWrapper((HttpServletResponse) response);
+        log.info("INIT : {}", req.getRequestURI()); // 오류 발생시 Filter를 가장 먼저 통과함을 출력하기 위한 로그
 
         chain.doFilter(req,res);
 
@@ -57,7 +58,8 @@ public class LoggerFilter implements Filter {
 
         var responseBody = new String(res.getContentAsByteArray());
 
-        log.info(">>>> uri : {} , method : {} , header : {} , body : {}",uri, method, responseHeaderValues, responseBody);
+        // Request -> Filter -> DispatcherServlet -> Handler Interceptor -> Controller -> Exception Handler -> DispatcherServlet -> Filter -> Response
+        log.info("<<<< uri : {} , method : {} , header : {} , body : {}",uri, method, responseHeaderValues, responseBody);
 
         res.copyBodyToResponse(); // 이걸 안쓰면 response-body가 비어있는 채로 전달된다.
 
