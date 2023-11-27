@@ -1,11 +1,14 @@
 package org.delivery.api.account;
 
 import lombok.RequiredArgsConstructor;
+import org.delivery.api.account.model.AccountMeResponse;
 import org.delivery.db.account.AccountEntity;
 import org.delivery.db.account.AccountRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @RestController
@@ -16,9 +19,12 @@ public class AccountApiController {
     // 그래서 JpaConfig를 통해 설정을 잡아준다.
     private final AccountRepository accountRepository;
 
-    @GetMapping("")
-    public void save(){
-        var account = AccountEntity.builder().build();
-        accountRepository.save(account);
+    @GetMapping("/me")
+    public AccountMeResponse me(){
+        return AccountMeResponse.builder()
+                .name("홍길동")
+                .email("a@gmail.com")
+                .registeredAt(LocalDateTime.now())
+                .build();
     }
 }
