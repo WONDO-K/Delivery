@@ -10,5 +10,5 @@ spring:
     url: jdbc:mysql://localhost:3306/delivery?useSSL=false&userUnicode=true&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    #password: root1234!!
-    password: cdh951102!
+    password: root1234!!
+    #password: cdh951102!
