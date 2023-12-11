@@ -1,0 +1,14 @@
+create table if not exists `delivery`.`store`(
+	`id` bigint(32) not null auto_increment,
+    `name` varchar(100) not null,
+    `address` varchar(150) not null,
+    `status` varchar(50) null,
+    `category` varchar(50) null,
+    `star` double null default 0,
+    `thumbnail_url` varchar(200) not null,
+    `minimum_amount` decimal(11,4) not null,
+    `minimum_delivery_amount` decimal(11,4) not null,
+    `phone_number` varchar(20) null,
+    primary key(`id`)
+)
+engine = InnoDB;
