@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/service" />
             <option value="$PROJECT_DIR$/service/api" />
             <option value="$PROJECT_DIR$/service/db" />
+            <option value="$PROJECT_DIR$/service/store-admin" />
           </set>
         </option>
       </GradleProjectSettings>
