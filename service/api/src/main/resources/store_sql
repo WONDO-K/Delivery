@@ -11,6 +11,19 @@ create table if not exists `user` (
     primary key(`id`))
 engine = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `delivery`.`store_menu`(
+	`id` BIGINT(32) NOT NULL AUTO_INCREMENT,
+    `store_id` bigint(32) NOT NULL,
+    `name` varchar(100) not null,
+    `amount` decimal(11,4) not null,
+    `status` varchar(50) not null,
+    `thumbnail_url` varchar(200) not null,
+    `like_count` int null default 0,
+    `sequence` int null default 0,
+    primary key(`id`)
+)
+engine = InnoDB;
+
 
 CREATE TABLE IF NOT EXISTS `delivery`.`user_order` (
   `id` BIGINT(32) NOT NULL AUTO_INCREMENT,
