@@ -25,7 +25,7 @@ public class StoreUserBusiness {
 
         var newEntity = storeUserService.register(entity);
 
-        var response = storeUserConverter.roResponse(newEntity, storeEntity.get());
+        var response = storeUserConverter.toResponse(newEntity, storeEntity.get());
         return response;
 
 
